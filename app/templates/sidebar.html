@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | Request System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/sidebar.css') }}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="/home">
+        <img src="/static/images/Pic2.png" alt="Chulabhorn Banner" class="banner-image">
+      </a>
+    </div>
+
+    <a href="/request" class="menu-item">
+      <i class="fa fa-bell"></i>
+      <span class="menu-text">แจ้งความต้องการ</span>
+    </a>
+
+    <a href="/status" class="menu-item">
+      <i class="fa fa-tasks"></i>
+      <span class="menu-text">แสดงงาน</span>
+    </a>
+
+    <a href="/record" class="menu-item">
+      <i class="fa fa-save"></i>
+      <span class="menu-text">บันทึก</span>
+    </a>
+
+    <a href="/users" class="menu-item">
+      <i class="fa fa-users"></i>
+      <span class="menu-text">จัดการผู้ใช้</span>
+    </a>
+
+    <a href="/test-db" class="menu-item">
+      <i class="fas fa-database"></i>
+      <span class="menu-text">ทดสอบดึงข้อมูลจาก DB</span>
+    </a>
+
+    <a href="/profile" class="menu-item">
+      <i class="fa fa-user"></i>
+      <span class="menu-text">โปรไฟล์</span>
+    </a>
+
+    <a href="/logout" class="menu-item">
+      <i class="fas fa-sign-out-alt"></i>
+      <span class="menu-text">ออกจากระบบ</span>
+    </a>
+  </div>
+
+  <script>
+    // ✅ Highlight active menu item based on current URL
+    const currentPath = window.location.pathname;
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+      if (item.getAttribute('href') === currentPath) {
+        item.classList.add('active');
+      }
+    });
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('collapsed');
+    }
+  </script>
+</body>
+</html>

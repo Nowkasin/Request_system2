@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* ✅ ปรับ main ให้จัดกลาง */
+main.centered-content {
+  margin-left: 60px; /* default sidebar width */
+  padding: 24px;
+  transition: margin-left 0.3s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ถ้าอยากให้กลางแนวตั้ง ใช้ center */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ✅ เมื่อ sidebar ขยาย */
+.sidebar:hover ~ main.centered-content {
+  margin-left: 240px;
+}
+
+header {
+  background-color: #063970;
+  color: white;
+  padding: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  color: #777;
+}
+
+a {
+  text-decoration: none;
+  color: #1976d2;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0d47a1;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}

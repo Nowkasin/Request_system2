@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | Request System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  {% include 'sidebar.html' %}
+
+  <div class="ml-64"> <!-- offset content to the right of sidebar -->
+    <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center">
+      <h1 class="text-xl font-semibold">ระบบบริหารคำขอ</h1>
+      <div class="text-sm text-gray-600">
+        👤 {{ session['full_name'] }} | {{ session['department'] }}
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+      <!-- Dashboard Header -->
+      <section class="text-center mb-6">
+        <h2 class="text-2xl md:text-3xl font-semibold">ยินดีต้อนรับ 👋</h2>
+        <p class="text-sm md:text-base text-gray-600">
+          เลือกกลุ่มคำรายงานที่ต้องการใช้งาน หรือสรุปคำแนะนำ
+        </p>
+      </section>
+
+      <!-- Dashboard Widgets -->
+      <section class="flex flex-wrap justify-center gap-4 mb-8">
+        <div class="flex items-center gap-3 p-5 bg-white rounded-xl shadow-md min-w-[220px] w-full sm:w-[calc(33%-16px)] hover:-translate-y-1 transition duration-300 ease-in-out">
+          <span class="material-icons text-blue-600 text-3xl">assignment</span>
+          <div class="text-base font-medium">คำสั่งดำเนินการ</div>
+        </div>
+        <div class="flex items-center gap-3 p-5 bg-white rounded-xl shadow-md min-w-[220px] w-full sm:w-[calc(33%-16px)] hover:-translate-y-1 transition duration-300 ease-in-out">
+          <span class="material-icons text-blue-600 text-3xl">check_circle</span>
+          <div class="text-base font-medium">คำสั่งเสร็จสิ้น</div>
+        </div>
+        <div class="flex items-center gap-3 p-5 bg-white rounded-xl shadow-md min-w-[220px] w-full sm:w-[calc(33%-16px)] hover:-translate-y-1 transition duration-300 ease-in-out">
+          <span class="material-icons text-blue-600 text-3xl">notifications_active</span>
+          <div class="text-base font-medium">แจ้งเตือนล่าสุด</div>
+        </div>
+      </section>
+
+      <!-- Power BI Report -->
+      <section class="dashboard-report">
+        <h3 class="text-lg font-semibold mb-4">📊 รายงาน Power BI</h3>
+        <div class="aspect-video w-full rounded-lg overflow-hidden shadow-lg">
+          <iframe 
+            src="https://app.powerbi.com/view?r=eyJrIjoiODVjMGQ3YTYtNGM4NC00ZDlhLTkzYjMtZDEyMTQyZjk1YTY5IiwidCI6ImU4MzVhNjMxLTQ5YmUtNDY1Ny1hNGFjLThmYjlmN2I2MWE4OSIsImMiOjEwfQ%3D%3D" 
+            class="w-full h-full" 
+            frameborder="0" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>

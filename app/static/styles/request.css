@@ -1,0 +1,154 @@
+/* ✅ Wrapper สำหรับจัดกลาง */
+.scroll-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* ถ้าอยากให้กลางแนวตั้ง ใช้ center */
+  min-height: 100vh;
+  padding: 40px 16px;
+  background-color: #f9fafb;
+}
+
+/* ✅ ฟอร์มหลัก */
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.request-form:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* ✅ ช่องกรอกข้อมูลทั่วไป */
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+  outline: none;
+}
+
+/* ✅ ปุ่มบันทึก */
+button[type="submit"] {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #1565c0;
+  transform: translateY(-1px);
+}
+
+/* ✅ ปุ่มทั่วไป */
+button {
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ✅ กล่องข้อมูลแต่ละกลุ่ม */
+fieldset {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: #fefefe;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease;
+}
+
+fieldset:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ✅ หัวข้อกลุ่ม */
+legend {
+  font-weight: 600;
+  font-size: 18px;
+  color: #1976d2;
+  padding: 0 12px;
+  margin-bottom: 16px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+/* ✅ ช่องแนบไฟล์ */
+.file-upload input[type="file"] {
+  border: 1px dashed #aaa;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.file-upload input[type="file"]:hover {
+  border-color: #1976d2;
+}
+
+/* ✅ Responsive เพิ่มเติม */
+@media (max-width: 768px) {
+  .request-form {
+    padding: 24px;
+  }
+
+  legend {
+    font-size: 16px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .request-form {
+    padding: 16px;
+  }
+
+  legend {
+    font-size: 15px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+/* ✅ Input inline (ถ้าใช้แบบคู่กัน) */
+.input-inline {
+  max-width: 400px;
+  width: 100%;
+}
+
+/* ✅ Input field (Tailwind-like) */
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+}

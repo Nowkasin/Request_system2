@@ -1,0 +1,111 @@
+ body {
+      font-family: sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .academy-link {
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      text-align: center;
+      color: #555;
+    }
+
+    .academy-link a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 0.75rem;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background: #005fa3;
+    }
+
+    .alert {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .alert-error {
+      background: #ffe5e5;
+      color: #b30000;
+    }
+
+    .alert-success {
+      background: #e5ffe5;
+      color: #007700;
+    }
+    .toast {
+  position: fixed;
+  top: 20px; /* ✅ อยู่ห่างจากขอบบน 20px */
+  left: 50%;
+  transform: translateX(-50%); /* ✅ จัดให้ toast อยู่กึ่งกลางแนวนอน */
+  background-color: #f44336;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  animation: fadein 0.5s, fadeout 0.5s 3s;
+  text-align: center;
+  min-width: 300px;
+}
+
+    @keyframes fadein {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeout {
+      from {opacity: 1;}
+      to {opacity: 0;}
+    }

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}📋 รายการคำขอทั้งหมด{% endblock %}
+
+{% block content %}
+<style>
+  .waiting { color: orange; }
+  .in-progress { color: blue; }
+  .done { color: green; }
+  .status-tag { font-weight: bold; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 8px; border: 1px solid #ccc; }
+</style>
+
+<div class="max-w-6xl mx-auto px-4 py-8">
+  <h2 class="text-2xl font-semibold mb-6">📋 รายการคำขอทั้งหมด</h2>
+
+  <table class="bg-white rounded-lg shadow-md overflow-hidden">
+    <thead class="bg-gray-100">
+      <tr>
+        <th>รหัสงาน</th>
+        <th>สถานะ</th>
+        <th>ชื่อโครงการ</th>
+        <th>ความสำคัญ</th>
+        <th>ประเภทงาน</th>
+        <th>วันที่สร้าง</th>
+        <th>วันที่ต้องการ</th>
+        <th>การดำเนินการ</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for request in request_list %}
+      <tr>
+        <td>{{ request.taskCode }}</td>
+        <td>
+          <span class="status-tag {{ get_status_class(request.status) }}">
+            {{ request.status }}
+          </span>
+        </td>
+        <td>{{ request.title }}</td>
+        <td>{{ request.priority }}</td>
+        <td>{{ request.type }}</td>
+        <td>{{ request.createdAt | format_date }}</td>
+        <td>{{ request.sendDate | format_date }}</td>
+        <td>
+          <button onclick="alert('📄 ดูรายละเอียดของ: {{ request.taskCode }}')">ดูรายละเอียด</button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

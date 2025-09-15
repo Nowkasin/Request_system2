@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  background-color: #063970;
+  width: 60px; /* เริ่มต้นแบบยุบ */
+  transition: width 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  color: #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 10;
+}
+
+.sidebar:hover {
+  width: 240px;
+}
+
+.sidebar-header {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+  flex-shrink: 0; /* ✅ ไม่ให้ย่อ */
+  position: relative; /* ✅ ไม่ให้ sidebar บีบ */
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: #eee;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #063970;
+}
+
+.menu-item i {
+  font-size: 1.2rem;
+  width: 30px;
+  text-align: center;
+}
+
+.menu-text {
+  margin-left: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar:hover .menu-text {
+  opacity: 1;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  margin-left: 60px; /* default sidebar width */
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar:hover ~ .main-content {
+  margin-left: 240px;
+}
+
+.toggle-btn {
+  display: none; /* ไม่จำเป็นแล้ว */
+}
+.menu-item.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 4px 0 0 #ffffff;
+  color: #fff;
+  font-weight: bold;
+}
