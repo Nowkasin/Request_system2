@@ -11,7 +11,7 @@ def fetch_phonebook_info(username: str) -> dict:
 
         response.raise_for_status()
         data = response.json()
-        print(f"✅ Parsed JSON: {data}")  # log JSON ที่แปลงแล้ว
+        print(f"✅ Parsed JSON: ดึงข้อมูลได้แล้วววววววววววววววววว")  # log JSON ที่แปลงแล้ว
 
         return data
     except requests.exceptions.RequestException as e:

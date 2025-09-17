@@ -40,6 +40,7 @@ def create_app():
     from .routes.request_routes import request_bp
     from .routes.auth_routes import auth_bp
     from .routes.status import status_bp
+
     app.register_blueprint(status_bp)
     app.register_blueprint(request_bp)
     app.register_blueprint(auth_bp)
