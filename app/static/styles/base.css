@@ -5,22 +5,8 @@ body {
   color: #333;
 }
 
-/* ✅ ปรับ main ให้จัดกลาง */
-main.centered-content {
-  margin-left: 60px; /* default sidebar width */
-  padding: 24px;
-  transition: margin-left 0.3s ease;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* ถ้าอยากให้กลางแนวตั้ง ใช้ center */
-  min-height: 100vh;
+main {
   box-sizing: border-box;
-}
-
-/* ✅ เมื่อ sidebar ขยาย */
-.sidebar:hover ~ main.centered-content {
-  margin-left: 240px;
 }
 
 header {

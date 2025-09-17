@@ -49,15 +49,9 @@ def home():
         return redirect('/login')
     return render_template('home.html')
 
-@auth_bp.route('/profile')
-def profile():
-    if 'username' not in session:
-        return redirect('/login')
+@auth_bp.route('/logout')
+def logout():
+    session.clear()
+    flash("ออกจากระบบเรียบร้อยแล้ว", "info")
+    return redirect('/login')
 
-    profile_data = {
-        "full_name": session.get("full_name", "ไม่ทราบชื่อ"),
-        "position": session.get("position", "ไม่ทราบตำแหน่ง"),
-        "employee_no": session.get("employee_no", "ไม่ทราบรหัสพนักงาน")
-    }
-
-    return render_template('profile.html', profile=profile_data)

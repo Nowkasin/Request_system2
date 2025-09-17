@@ -4,11 +4,59 @@
   <meta charset="UTF-8">
   <title>{% block title %}ระบบแจ้งความต้องการ{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/base.css') }}">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- 🔹 Sidebar -->
   {% include 'sidebar.html' %}
-  <main class="centered-content">
-    {% block content %}{% endblock %}
+
+  <!-- 🔹 Main Content -->
+  <main class="ml-64 w-full py-6">
+    <!-- 🔹 Header -->
+    <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center mb-6 rounded-lg">
+      <h1 class="text-xl font-semibold">ระบบแจ้งความต้องการ</h1>
+      <div class="text-sm text-gray-600 cursor-pointer hover:underline" onclick="openModal()">
+        👤 {{ session['full_name'] }} | {{ session['department'] }}
+      </div>
+    </header>
+
+    <!-- 🔹 Page Content -->
+    <div class="w-full pr-4 lg:pr-6 xl:pr-8">
+      {% block content %}{% endblock %}
+    </div>
   </main>
+
+  <!-- 🔹 Profile Modal -->
+  <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+      <h2 class="text-xl font-semibold mb-4">ข้อมูลโปรไฟล์</h2>
+      <div class="space-y-2 text-sm text-gray-700">
+        <p><strong>ชื่อ-นามสกุล:</strong> {{ session['full_name'] }}</p>
+        <p><strong>ตำแหน่ง:</strong> {{ session['department'] }}</p>
+        <p><strong>รหัสพนักงาน:</strong> {{ session['employee_no'] }}</p>
+        <p><strong>อีเมล์:</strong> {{ session['email'] }}</p>
+      </div>
+      <div class="mt-6 flex justify-between">
+        <a href="/logout" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition">
+          ออกจากระบบ
+        </a>
+        <button onclick="closeModal()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+          ปิด
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔹 Modal Script -->
+  <script>
+    function openModal() {
+      document.getElementById('profileModal').classList.remove('hidden');
+    }
+    function closeModal() {
+      document.getElementById('profileModal').classList.add('hidden');
+    }
+  </script>
+
 </body>
 </html>

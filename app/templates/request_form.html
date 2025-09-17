@@ -5,18 +5,17 @@
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/request.css') }}">
 
-<div class="flex justify-center items-start py-10 px-4">
+<div class="w-full pr-4 lg:pr-6 xl:pr-8 py-10">
   <form action="/request" method="POST" enctype="multipart/form-data"
-        class="request-form bg-white shadow-lg rounded-xl p-6 w-full max-w-3xl space-y-6">
-
+        class="request-form space-y-8">
+    
     <!-- 🔹 ข้อมูลทั่วไป -->
-    <fieldset class="border border-gray-300 rounded-md p-4">
-      <legend class="font-semibold text-lg text-gray-700">ข้อมูลทั่วไป</legend>
-
-      <label for="taskCode" class="block mt-2">รหัสแผน</label>
+    <fieldset>
+      <legend>ข้อมูลทั่วไป</legend>
+      <label for="taskCode" class="block mt-4">รหัสแผน</label>
       <input type="text" id="taskCode" name="taskCode" value="{{ task_code }}" readonly class="input-field" />
 
-      <label for="selectedCategory" class="block mt-2">ความสัมพันธ์แผน</label>
+      <label for="selectedCategory" class="block mt-4">ความสัมพันธ์แผน</label>
       <select id="selectedCategory" name="selectedCategory" required class="input-field">
         <option value="เร่งด่วน">เร่งด่วน</option>
         <option value="สารสนเทศ">สารสนเทศ</option>
@@ -24,7 +23,7 @@
         <option value="อาคาร">อาคาร</option>
       </select>
 
-      <label for="type" class="block mt-2">ประเภท</label>
+      <label for="type" class="block mt-4">ประเภท</label>
       <select id="type" name="type" required class="input-field">
         <option value="Project">Project</option>
         <option value="Dashboard">Dashboard</option>
@@ -33,63 +32,60 @@
         <option value="Support">Support</option>
       </select>
 
-      <label for="title" class="block mt-2">ชื่อโครงการ/งาน/กิจกรรมหลัก/รายการ</label>
+      <label for="title" class="block mt-4">ชื่อโครงการ/งาน/กิจกรรมหลัก/รายการ</label>
       <input type="text" id="title" name="title" required class="input-field" />
     </fieldset>
 
     <!-- 🔹 ผู้ขอ -->
-    <fieldset class="border border-gray-300 rounded-md p-4">
-      <legend class="font-semibold text-lg text-gray-700">ผู้ขอ</legend>
-
-      <label for="coordinatoragency" class="block mt-2">ชื่อหน่วยงาน</label>
+    <fieldset>
+      <legend>ผู้ขอ</legend>
+      <label for="coordinatoragency" class="block mt-4">ชื่อหน่วยงาน</label>
       <input type="text" id="coordinatoragency" name="coordinatoragency" class="input-field" />
 
-      <label for="coordinatorEmail" class="block mt-2">ชื่อผู้ขอ</label>
+      <label for="coordinatorEmail" class="block mt-4">ชื่อผู้ขอ</label>
       <input type="text" id="coordinatorEmail" name="coordinatorEmail" class="input-field" />
     </fieldset>
 
     <!-- 🔹 ผู้เสนอ -->
-    <fieldset class="border border-gray-300 rounded-md p-4">
-      <legend class="font-semibold text-lg text-gray-700">ผู้เสนอ</legend>
-
-      <label for="assigneeagency" class="block mt-2">ชื่อหน่วยงาน</label>
+    <fieldset>
+      <legend>ผู้เสนอ</legend>
+      <label for="assigneeagency" class="block mt-4">ชื่อหน่วยงาน</label>
       <input type="text" id="assigneeagency" name="assigneeagency" class="input-field" />
 
-      <label for="assigneeEmail" class="block mt-2">ชื่อผู้เสนอ</label>
+      <label for="assigneeEmail" class="block mt-4">ชื่อผู้เสนอ</label>
       <input type="text" id="assigneeEmail" name="assigneeEmail" class="input-field" />
     </fieldset>
 
     <!-- 🔹 รายละเอียด -->
-    <fieldset class="border border-gray-300 rounded-md p-4">
-      <legend class="font-semibold text-lg text-gray-700">รายละเอียด</legend>
-
-      <label for="sendDate" class="block mt-2">วันที่ต้องการ</label>
+    <fieldset>
+      <legend>รายละเอียด</legend>
+      <label for="sendDate" class="block mt-4">วันที่ต้องการ</label>
       <input type="date" id="sendDate" name="sendDate" required class="input-field" />
 
-      <label for="startTime" class="block mt-2">เวลาเริ่ม</label>
+      <label for="startTime" class="block mt-4">เวลาเริ่ม</label>
       <select id="startTime" name="startTime" required class="input-field">
         {% for time in time_options %}
           <option value="{{ time }}">{{ time }}</option>
         {% endfor %}
       </select>
 
-      <label for="endTime" class="block mt-2">เวลาสิ้นสุด</label>
+      <label for="endTime" class="block mt-4">เวลาสิ้นสุด</label>
       <select id="endTime" name="endTime" required class="input-field">
         {% for time in filtered_end_times %}
           <option value="{{ time }}">{{ time }}</option>
         {% endfor %}
       </select>
 
-      <label for="details" class="block mt-2">รายละเอียด</label>
+      <label for="details" class="block mt-4">รายละเอียด</label>
       <textarea id="details" name="details" rows="4" class="input-field"></textarea>
 
-      <label for="note" class="block mt-2">หมายเหตุ</label>
+      <label for="note" class="block mt-4">หมายเหตุ</label>
       <textarea id="note" name="note" rows="2" class="input-field"></textarea>
     </fieldset>
 
     <!-- 🔹 แนบไฟล์ -->
-    <fieldset class="border border-gray-300 rounded-md p-4">
-      <legend class="font-semibold text-lg text-gray-700">📎 แนบไฟล์</legend>
+    <fieldset>
+      <legend>📎 แนบไฟล์</legend>
       <input type="file" name="attachments" multiple class="input-field" />
     </fieldset>
 
@@ -100,5 +96,4 @@
     </div>
   </form>
 </div>
-
 {% endblock %}
